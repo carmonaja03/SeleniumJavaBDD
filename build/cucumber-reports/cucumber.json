@@ -1,0 +1,510 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 5,
+        "name": "User generates token for Authorisation",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3602228300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am an authorized user",
+            "match": {
+              "location": "serviceNowStepDef.iAmAnAuthorizedUser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-10-10T10:19:28.620Z",
+        "line": 9,
+        "name": "Verify client is able to perform GET call on a given end point",
+        "description": "",
+        "id": "servicenow-api-test-demo;verify-client-is-able-to-perform-get-call-on-a-given-end-point",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 310400,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I set the user service api endpoint",
+            "match": {
+              "location": "serviceNowStepDef.iSetTheUserServiceApiEndpoint()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 247644600,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User makes a GET call to the endpoint \"/users\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/users\"",
+                  "offset": 38
+                }
+              ],
+              "location": "serviceNowStepDef.userMakesAGETCallToTheEndpoint(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44753300,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "The list of users should be populated",
+            "match": {
+              "location": "serviceNowStepDef.theListOfUsersShouldBePopulated()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3115600,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "check the status code to be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "serviceNowStepDef.checkTheStatusCodeToBe(int)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag"
+          },
+          {
+            "name": "@TestGETAll"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "User generates token for Authorisation",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 481346900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am an authorized user",
+            "match": {
+              "location": "serviceNowStepDef.iAmAnAuthorizedUser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-10-10T10:19:32.553Z",
+        "line": 16,
+        "name": "Verify if client is able to add a user",
+        "description": "",
+        "id": "servicenow-api-test-demo;verify-if-client-is-able-to-add-a-user",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 226200,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I set the user service api endpoint",
+            "match": {
+              "location": "serviceNowStepDef.iSetTheUserServiceApiEndpoint()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 440758700,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "User makes a POST call on \"/users\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/users\"",
+                  "offset": 26
+                }
+              ],
+              "location": "serviceNowStepDef.userMakesAPOSTCallOn(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 22918700,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "User should be added",
+            "match": {
+              "location": "serviceNowStepDef.userShouldBeAdded()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 178800,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "check the status code to be 201",
+            "match": {
+              "arguments": [
+                {
+                  "val": "201",
+                  "offset": 28
+                }
+              ],
+              "location": "serviceNowStepDef.checkTheStatusCodeToBe(int)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag"
+          },
+          {
+            "name": "@TestAddUser"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "User generates token for Authorisation",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 440519200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am an authorized user",
+            "match": {
+              "location": "serviceNowStepDef.iAmAnAuthorizedUser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-10-10T10:19:33.500Z",
+        "line": 23,
+        "name": "Verify if the client is able to get the existing user",
+        "description": "",
+        "id": "servicenow-api-test-demo;verify-if-the-client-is-able-to-get-the-existing-user",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 144300,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I set the user service api endpoint",
+            "match": {
+              "location": "serviceNowStepDef.iSetTheUserServiceApiEndpoint()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 430301100,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "User makes a GET call to the endpoint \"/users/1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/users/1\"",
+                  "offset": 38
+                }
+              ],
+              "location": "serviceNowStepDef.userMakesAGETCallToTheEndpoint(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 14559300,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "Individual user should be populated",
+            "match": {
+              "location": "serviceNowStepDef.individualUserShouldBePopulated()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 183000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "check the status code to be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "serviceNowStepDef.checkTheStatusCodeToBe(int)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag"
+          },
+          {
+            "name": "@TestGetUser"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "User generates token for Authorisation",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 436013800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am an authorized user",
+            "match": {
+              "location": "serviceNowStepDef.iAmAnAuthorizedUser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-10-10T10:19:34.387Z",
+        "line": 30,
+        "name": "Verify if client is able to edit a user",
+        "description": "",
+        "id": "servicenow-api-test-demo;verify-if-client-is-able-to-edit-a-user",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 288800,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I set the user service api endpoint",
+            "match": {
+              "location": "serviceNowStepDef.iSetTheUserServiceApiEndpoint()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 528457000,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "User makes a PUT call on \"/users/1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/users/1\"",
+                  "offset": 25
+                }
+              ],
+              "location": "serviceNowStepDef.userMakesAPUTCallOn(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 36469400,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "User should be Edited",
+            "match": {
+              "location": "serviceNowStepDef.userShouldBeEdited()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 335300,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "check the status code to be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "serviceNowStepDef.checkTheStatusCodeToBe(int)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag"
+          },
+          {
+            "name": "@TestEditUser"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "User generates token for Authorisation",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 428761000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am an authorized user",
+            "match": {
+              "location": "serviceNowStepDef.iAmAnAuthorizedUser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-10-10T10:19:35.390Z",
+        "line": 37,
+        "name": "Verify if client is able to delete a user",
+        "description": "",
+        "id": "servicenow-api-test-demo;verify-if-client-is-able-to-delete-a-user",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 233600,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "I set the user service api endpoint",
+            "match": {
+              "location": "serviceNowStepDef.iSetTheUserServiceApiEndpoint()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 443668800,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "User makes a DELETE call on \"/users/id\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/users/id\"",
+                  "offset": 28
+                }
+              ],
+              "location": "serviceNowStepDef.userMakesADELETECallOn(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 210400,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "User should be deleted and status code should be 204",
+            "match": {
+              "arguments": [
+                {
+                  "val": "204",
+                  "offset": 49
+                }
+              ],
+              "location": "serviceNowStepDef.userShouldBeDeletedAndStatusCodeShouldBe(int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag"
+          },
+          {
+            "name": "@TestDeleteUser"
+          }
+        ]
+      }
+    ],
+    "name": "ServiceNow API test Demo",
+    "description": "  I want to use this template for my feature file",
+    "id": "servicenow-api-test-demo",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ServiceNow.feature",
+    "tags": [
+      {
+        "name": "@tag",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

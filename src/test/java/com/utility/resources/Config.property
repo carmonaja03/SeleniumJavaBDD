@@ -1,0 +1,3 @@
+#--For Chrome driver--!
+browser = chrome
+url = http://demo.guru99.com/test/newtours/register.php
