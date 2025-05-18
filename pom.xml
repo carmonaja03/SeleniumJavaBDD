@@ -20,12 +20,12 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>5.2.3</version>
+			<version>5.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.0.0</version>
+			<version>4.32.0</version>
 		</dependency>
 		<!-- <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -40,18 +40,25 @@
 			<version>1.1.4</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.relevantcodes</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>2.41.2</version>
-		</dependency>
+<!--		moved to com.aventstack 4.0.9 (see bellow)-->
+<!--		<dependency>-->
+<!--			<groupId>com.relevantcodes</groupId>-->
+<!--			<artifactId>extentreports</artifactId>-->
+<!--			<version>2.41.2</version>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+<!--		<dependency>-->
+<!--			<groupId>com.aventstack</groupId>-->
+<!--			<artifactId>extentreports</artifactId>-->
+<!--			<version>5.1.1</version>-->
+<!--		</dependency>-->
 		
 
 		<!--The Below one is dependency for Cucumber Reporting-->
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>
-			<version>5.3.0</version>
+			<version>5.8.1</version>
 		</dependency>
 
 
@@ -60,29 +67,43 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>1.2.5</version>
 		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>7.22.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>4.7.4</version>
-			<scope>test</scope>
+			<version>7.22.1</version>
+
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>3.1.1</version>
+			<version>5.5.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>4.7.4</version>
-			<scope>test</scope>
+			<version>7.22.1</version>
+
 		</dependency>
+<!--		moved to org.junit.jupiter (see below)-->
+<!--		<dependency>-->
+<!--			<groupId>junit</groupId>-->
+<!--			<artifactId>junit</artifactId>-->
+<!--			<version>4.13.2</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.11.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -113,7 +134,7 @@
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>1.2.5</version>
+			<version>1.2.6</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 		<dependency>
@@ -136,7 +157,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
+			<version>3.17.0</version>
 		</dependency>
 		
 		<dependency>
@@ -164,10 +185,17 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.11.0</version>
 		</dependency>
+<!--		moved to org.jfree-->
+<!--		<dependency>-->
+<!--			<groupId>jfree</groupId>-->
+<!--			<artifactId>jfreechart</artifactId>-->
+<!--			<version>1.0.13</version>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
 		<dependency>
-			<groupId>jfree</groupId>
+			<groupId>org.jfree</groupId>
 			<artifactId>jfreechart</artifactId>
-			<version>1.0.13</version>
+			<version>1.5.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.avalon.framework</groupId>
@@ -197,21 +225,27 @@
 		</dependency>
 		
 		
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>commons-lang</groupId>-->
+<!--			<artifactId>commons-lang</artifactId>-->
+<!--			<version>2.6</version>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.apache.commons</groupId>-->
+<!--			<artifactId>commons-lang3</artifactId>-->
+<!--			<version>3.0</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>4.0.0</version>
+			<version>5.4.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.ini4j/ini4j -->
+		<dependency>
+			<groupId>org.ini4j</groupId>
+			<artifactId>ini4j</artifactId>
+			<version>0.5.4</version>
 		</dependency>
 		
 	</dependencies>
@@ -243,34 +277,64 @@
 						<reuseForks>true</reuseForks>
 					</systemPropertyVariables>
 					<includes>
-						<include>TestRunnerFile.java</include>
+						<include>com/Runner/RunRegressionTests.java</include>
 
 					</includes>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-testng</artifactId>
+						<version>3.5.3</version>
+
+					</dependency>
+				</dependencies>
 			</plugin>
 
+<!--			<plugin>-->
+<!--				<groupId>net.masterthought</groupId>-->
+<!--				<artifactId>maven-cucumber-reporting</artifactId>-->
+<!--				<version>3.15.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>execution</id>-->
+<!--						<phase>verify</phase>-->
+<!--						<goals>-->
+<!--							<goal>generate</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<projectName>CIO India</projectName>-->
+<!--							&lt;!&ndash; output directory for the generated report &ndash;&gt;-->
+<!--							<outputDirectory>${project.build.directory}/cucumber-maven-report</outputDirectory>-->
+<!--							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>-->
+
+<!--							<buildNumber>10.2.1</buildNumber>-->
+<!--							<parallelTesting>false</parallelTesting>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>3.15.0</version>
+				<groupId>com.trivago.rta</groupId>
+				<artifactId>cluecumber-report-plugin</artifactId>
+				<version>2.9.4</version>
 				<executions>
 					<execution>
-						<id>execution</id>
+						<id>report</id>
 						<phase>verify</phase>
 						<goals>
-							<goal>generate</goal>
+							<goal>reporting</goal>
 						</goals>
-						<configuration>
-							<projectName>CIO India</projectName>
-							<!-- output directory for the generated report -->
-							<outputDirectory>${project.build.directory}/cucumber-maven-report</outputDirectory>
-							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
-
-							<buildNumber>10.2.1</buildNumber>
-							<parallelTesting>false</parallelTesting>
-						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<sourceJsonReportDirectory>${project.build.directory}</sourceJsonReportDirectory>
+					<generatedHtmlReportDirectory>${project.build.directory}/cluecumber-report</generatedHtmlReportDirectory>
+					<failScenariosOnPendingOrUndefinedSteps>true</failScenariosOnPendingOrUndefinedSteps>
+				</configuration>
 			</plugin>
 
 			<!-- <plugin>

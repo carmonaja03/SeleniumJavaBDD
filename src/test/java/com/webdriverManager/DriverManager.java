@@ -25,7 +25,7 @@ public class DriverManager {
 		if(driver==null) {
 			WebDriverManager.chromedriver().setup();
 			WebDriverManager.edgedriver().setup();
-			String downloadFilepath = System.getProperty("user.dir")+"\\src\\TestScenarios";
+			String downloadFilepath = System.getProperty("user.dir")+"/src/TestScenarios";
 			HashMap<String, Object> browserPref = new HashMap<String, Object>();
 			browserPref.put("profile.default_content_settings.popups", 0);
 			browserPref.put("download.default_directory", downloadFilepath);

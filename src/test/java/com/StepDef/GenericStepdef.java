@@ -1,8 +1,10 @@
 package com.StepDef;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
+import com.StepDef.hooks.GlobalHooks;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -32,7 +34,7 @@ public class GenericStepdef extends UtilMethods{
 			logg= logger.createNode(new GherkinKeyword("And"), "User selects "+value+" from "+dropdownLabel+" dropdown");
 //			selectValueFromDropdown(value, dropdownLabel);
 			String xpath = "//*[normalize-space(text())='" + dropdownLabel + "']/following::select[1]";
-			WebDriverWait wait1 = new WebDriverWait(driver, 20);
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 			Select sel = new Select(driver.findElement(By.xpath(xpath)));
 			sel.selectByVisibleText(value);
@@ -46,7 +48,7 @@ public class GenericStepdef extends UtilMethods{
 		ExtentTest logg=null;
 			logg= logger.createNode(new GherkinKeyword("And"), "User click on "+label+" label");
 			String xpath = "//*[normalize-space(text())='" + label + "']|//*[@name='" + label + "']";
-			WebDriverWait wait1 = new WebDriverWait(driver, 20);
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 			WebElement element = driver.findElement(By.xpath(xpath));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -154,7 +156,7 @@ public class GenericStepdef extends UtilMethods{
 		ExtentTest logg=null;
 			logg= logger.createNode(new GherkinKeyword("When"), "User enters "+value+" as "+fieldName+" in text field");
 			String xpath = "//*[normalize-space(text())='" + fieldName + "']/following::input[1]";
-			WebDriverWait wait1 = new WebDriverWait(driver, 20);
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 			if(driver.findElement(By.xpath(xpath)).isDisplayed()) {
 			driver.findElement(By.xpath(xpath)).clear();

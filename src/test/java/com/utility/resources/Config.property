@@ -1,3 +1,6 @@
 #--For Chrome driver--!
 browser = chrome
 url = http://demo.guru99.com/test/newtours/register.php
+wikiURL = https://www.wikipedia.org/
+gsectUAT =
+gsectProd =

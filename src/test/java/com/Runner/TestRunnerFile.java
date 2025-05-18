@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import io.cucumber.core.api.Scenario;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -25,15 +25,14 @@ import net.masterthought.cucumber.sorting.SortingMethod;
 			features = "src/test/resources/FeatureFiles"
 			,glue={"com/StepDef"},
 			tags="@TestOne",
-					plugin = {"pretty", "html:target/cucumber-reports",
-				              "json:target/cucumber.json",
+					plugin = {"pretty", "html:target/cucumber-reports.html"
+							,"json:target/cucumber-report.json",
 				              "rerun:target/rerun.txt"},
 			dryRun=false,
-			monochrome=false,
-			strict=true
+			monochrome=false
+		//	strict=true
 			)
-
-	public class TestRunnerFile {
+	class TestRunnerFile {
 		
 		
 

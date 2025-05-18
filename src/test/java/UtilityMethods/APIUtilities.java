@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -39,7 +40,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 //import com.relevantcodes.extentreports.ExtentTest;
 
@@ -61,7 +62,7 @@ public class APIUtilities {
     public static Properties prop;
 
     // ****************************************
-    public static ExtentHtmlReporter report;
+    public static ExtentSparkReporter report;
     public static ExtentReports extent;
     public static ExtentTest logger;
 //	static WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -128,7 +129,7 @@ public class APIUtilities {
     public static void enterText(String label, String val) {
         try {
             String xpath = "//*[normalize-space(text())='" + label + "']/following::input[1]";
-            WebDriverWait wait1 = new WebDriverWait(driver, 20);
+            WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
             driver.findElement(By.xpath(xpath)).clear();
             driver.findElement(By.xpath(xpath)).sendKeys(val);
@@ -141,7 +142,7 @@ public class APIUtilities {
 
     public static void selectValueFromDropdown(String val, String label) {
         String xpath = "//*[normalize-space(text())='" + label + "']/following::select[1]";
-        WebDriverWait wait1 = new WebDriverWait(driver, 20);
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         Select sel = new Select(driver.findElement(By.xpath(xpath)));
         sel.selectByVisibleText(val);
@@ -149,7 +150,7 @@ public class APIUtilities {
 
     public static void clickOnLabel(String labels) {
         String xpath = "//*[normalize-space(text())='" + labels + "']|//*[@name='" + labels + "']";
-        WebDriverWait wait1 = new WebDriverWait(driver, 20);
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         WebElement element = driver.findElement(By.xpath(xpath));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -171,7 +172,7 @@ public class APIUtilities {
                     textField = it.next();
                     value = map.get(textField);
                     String xpath = "//*[normalize-space(text())='" + textField + "']/following::input[1]";
-                    WebDriverWait wait1 = new WebDriverWait(driver, 20);
+                    WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
                     wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
                     driver.findElement(By.xpath(xpath)).clear();
                     driver.findElement(By.xpath(xpath)).sendKeys(value);
@@ -190,7 +191,7 @@ public class APIUtilities {
 
     public static void scrollToViewAndClick(String label) {
         String xpath = "//*[normalize-space(text())='" + label + "']|//*[@name='" + label + "']";
-        WebDriverWait wait1 = new WebDriverWait(driver, 20);
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         WebElement element = driver.findElement(By.xpath(xpath));
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -199,7 +200,7 @@ public class APIUtilities {
     }
 
     public static void explicitWait(WebElement elementLocation) {
-        WebDriverWait wait1 = new WebDriverWait(driver, 20);
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait1.until(ExpectedConditions.visibilityOf(elementLocation));
     }
 
@@ -397,7 +398,7 @@ public class APIUtilities {
         File src = ts.getScreenshotAs(OutputType.FILE);
 
         // copy screenshot and desired location - FileUtils
-        String dest = System.getProperty("user.dir") + "\\target\\Screenshots\\" + fileName + "_" + timestamp()
+        String dest = System.getProperty("user.dir") + "/target/Screenshots/" + fileName + "_" + timestamp()
                 + ".png";
 //		String dest = System.getProperty("user.dir") + "\\src\\test\\resources\\Screenshots" + "\\" + fileName + "_"
 //				+ timestamp() + ".png";
@@ -495,19 +496,19 @@ public class APIUtilities {
             return extent;
         }
         System.out.println(
-                System.getProperty("user.dir") + "\\src\\test\\resources\\Reports\\ExtentReport" + timestamp + ".html");
+                System.getProperty("user.dir") + "/target/ExtentReport" + timestamp + ".html");
 //		report = new ExtentHtmlReporter(
 //				System.getProperty("user.dir") + "\\src\\test\\resources\\Reports\\ExtentReport" + timestamp + ".html");
-        report = new ExtentHtmlReporter(
-                System.getProperty("user.dir") + "\\target\\ExtentReport" + timestamp + ".html");
+        report = new ExtentSparkReporter(
+                System.getProperty("user.dir") + "/target/ExtentReport" + timestamp + ".html");
         report.config().setDocumentTitle("Application Report");
 //		String env=
         String browser = util.init_properties().getProperty("browser");
         report.config().setReportName("CRMBDD_" + "browser");
         report.config().setTheme(Theme.DARK);
         report.config().setTimeStampFormat("MMM dd, yyyy hh:mm:ss");
-        report.config().enableTimeline(true);
-        report.start();
+//        report.config().enableTimeline(true);
+//        report.start();
         extent = new ExtentReports();
         extent.attachReporter(report);
 

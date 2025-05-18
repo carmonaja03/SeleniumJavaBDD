@@ -46,6 +46,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+//import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 //import com.relevantcodes.extentreports.ExtentTest;
 
@@ -80,7 +81,7 @@ public class UtilMethods {
 		} else if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			WebDriverManager.edgedriver().setup();
-			String downloadFilepath = System.getProperty("user.dir")+"\\src\\TestScenarios";
+			String downloadFilepath = System.getProperty("user.dir")+"/src/TestScenarios";
 			HashMap<String, Object> edgePref = new HashMap<String, Object>();
 			edgePref.put("profile.default_content_settings.popups", 0);
 			edgePref.put("download.default_directory", downloadFilepath);
@@ -98,7 +99,7 @@ public class UtilMethods {
 			driver = new InternetExplorerDriver();
 		} else if (browserName.equalsIgnoreCase("EDGE")) {
 			WebDriverManager.edgedriver().setup();
-			String downloadFilepath = System.getProperty("user.dir")+"\\src\\TestScenarios";
+			String downloadFilepath = System.getProperty("user.dir")+"/src/TestScenarios";
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
 			chromePrefs.put("download.default_directory", downloadFilepath);
@@ -116,24 +117,7 @@ public class UtilMethods {
 		return driver;
 	}
 
-	public static WebDriver openBrowser() {
-		String browserName = init_properties().getProperty("browser");
-		if (browserName.equalsIgnoreCase("Firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-		} else if (browserName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		} else if (browserName.equalsIgnoreCase("IE")) {
-			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
-		} else if (browserName.equalsIgnoreCase("EDGE")) {
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
-		}
-		driver.manage().window().maximize();
-		return driver;
-	}
+
 
 	public static void enterUrl(String val) {
 		driver.get(val);
@@ -160,7 +144,7 @@ public class UtilMethods {
 	public static void enterText(String label, String val) {
 		try {
 			String xpath = "//*[normalize-space(text())='" + label + "']/following::input[1]";
-			WebDriverWait wait1 = new WebDriverWait(driver, 20);
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 			driver.findElement(By.xpath(xpath)).clear();
 			driver.findElement(By.xpath(xpath)).sendKeys(val);
@@ -173,7 +157,7 @@ public class UtilMethods {
 
 	public static void selectValueFromDropdown(String val, String label) {
 		String xpath = "//*[normalize-space(text())='" + label + "']/following::select[1]";
-		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		Select sel = new Select(driver.findElement(By.xpath(xpath)));
 		sel.selectByVisibleText(val);
@@ -181,7 +165,7 @@ public class UtilMethods {
 
 	public static void clickOnLabel(String labels) {
 		String xpath = "//*[normalize-space(text())='" + labels + "']|//*[@name='" + labels + "']";
-		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		WebElement element = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -203,7 +187,7 @@ public class UtilMethods {
 					textField = it.next();
 					value = map.get(textField);
 					String xpath = "//*[normalize-space(text())='" + textField + "']/following::input[1]";
-					WebDriverWait wait1 = new WebDriverWait(driver, 20);
+					WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 					wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 					driver.findElement(By.xpath(xpath)).clear();
 					driver.findElement(By.xpath(xpath)).sendKeys(value);
@@ -222,7 +206,7 @@ public class UtilMethods {
 
 	public static void scrollToViewAndClick(String label) {
 		String xpath = "//*[normalize-space(text())='" + label + "']|//*[@name='" + label + "']";
-		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		WebElement element = driver.findElement(By.xpath(xpath));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -231,7 +215,7 @@ public class UtilMethods {
 	}
 
 	public static void explicitWait(WebElement elementLocation) {
-		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.visibilityOf(elementLocation));
 	}
 
@@ -429,7 +413,7 @@ public class UtilMethods {
 		File src = ts.getScreenshotAs(OutputType.FILE);
 
 		// copy screenshot and desired location - FileUtils
-		String dest = System.getProperty("user.dir") + "\\target\\Screenshots\\" + fileName + "_" + timestamp()
+		String dest = System.getProperty("user.dir") + "/target/Screenshots/" + fileName + "_" + timestamp()
 				+ ".png";
 //		String dest = System.getProperty("user.dir") + "\\src\\test\\resources\\Screenshots" + "\\" + fileName + "_"
 //				+ timestamp() + ".png";
@@ -527,11 +511,11 @@ public class UtilMethods {
 			return extent;
 		}
 		System.out.println(
-				System.getProperty("user.dir") + "\\src\\test\\resources\\Reports\\ExtentReport" + timestamp + ".html");
+				System.getProperty("user.dir") + "/target/ExtentReport" + timestamp + ".html");
 //		report = new ExtentHtmlReporter(
 //				System.getProperty("user.dir") + "\\src\\test\\resources\\Reports\\ExtentReport" + timestamp + ".html");
 		report = new ExtentHtmlReporter(
-				System.getProperty("user.dir") + "\\target\\ExtentReport" + timestamp + ".html");
+				System.getProperty("user.dir") + "/target/ExtentReport" + timestamp + ".html");
 		report.config().setDocumentTitle("Application Report");
 //		String env=
 		String browser = util.init_properties().getProperty("browser");
@@ -573,7 +557,7 @@ public class UtilMethods {
 	public static void sendEmail(String Subject, String Env, String Info) throws Exception {
 		String username = "XXXX";
 		String password = "XXX";
-		String path = System.getProperty("user.dir") + "\\target\\ExtentReports\\ExtentReport.html";
+		String path = System.getProperty("user.dir") + "/target/ExtentReports/ExtentReport.html";
 
 		ExchangeService service = new ExchangeService();
 		ExchangeCredentials credentials = new WebCredentials(username, password);

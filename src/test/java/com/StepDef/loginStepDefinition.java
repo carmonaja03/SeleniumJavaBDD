@@ -3,18 +3,15 @@ package com.StepDef;
 
 import java.io.IOException;
 
+import com.StepDef.hooks.GlobalHooks;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
+//import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
-import com.vimalselvam.cucumber.listener.Reporter;
 
 import UtilityMethods.UtilMethods;
 import io.cucumber.java.en.Given;

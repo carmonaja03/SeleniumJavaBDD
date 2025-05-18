@@ -10,11 +10,12 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features = "@target/rerun.txt",
 glue = { "com/StepDef" }, 
 plugin = {
-		"html:target/cucumber", "json:target/wip.json"},
+		"html:target/cucumber-reports.html", "json:target/wip.json"},
 		 
 dryRun = false, 
-monochrome = false,
-strict = true)
+monochrome = false
+//strict = true
+)
 
 public class FailedCaseRunnerFile {
 

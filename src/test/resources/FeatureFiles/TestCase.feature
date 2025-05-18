@@ -6,10 +6,10 @@ Feature: Title of your feature
 #  Background: launching browser
 #    Given I want to launch CRM Application "edge"
 
-  @TestOne
+  @TestWiki
   Scenario: Title of your scenario
     Given I want to launch CRM Application "chrome"
-    When User enters field "First Name:" as "First Name" in text field
+    When User enters field "First Name1:" as "First Name" in text field
     #And User selects "INDIA" from "Country:" dropdown
     #And User click on "submit123" label
     #And User click on "submit" label
